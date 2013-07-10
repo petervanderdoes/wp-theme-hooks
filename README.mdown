@@ -63,7 +63,8 @@ The Changes.md needs to contain a section for the changelog, set up as follows
 ```
 After you added another version you can edit or remove the 0.0.0 entry
 
-== License
+## License
+
 Portions of the code is licensed as The MIT License
 
 Copyright (c) 2013 Wim Mostmans
