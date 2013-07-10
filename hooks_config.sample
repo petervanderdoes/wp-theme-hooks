@@ -1,0 +1,5 @@
+MAINFILE=style.css
+_update_version() {
+        #Update the version number
+        sed -i 's/Version:.*/Version: '$VERSION'/' $ROOTDIR/style.css
+}
