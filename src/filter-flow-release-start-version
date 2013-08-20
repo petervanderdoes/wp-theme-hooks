@@ -26,8 +26,32 @@ else
 	if [ -z "$TAG" ]; then
 		gitflow_set_major_minor $VERSION
 	else
+		if [ -z `git tag $VERSION -l` ]; then
+			TAG_MAJOR=$(echo "$TAG" | cut -f1 -d".")
+			if $(gitflow_contains "$VERSION" "."); then
+				VERSION=$(echo ${VERSION#*.})
+				TAG_MINOR=$(echo "$VERSION" | cut -f1 -d"."|cut -f1 -d"-")
+				if [ -z $TAG_MINOR ]; then
+					TAG_MINOR=0
+					TAG_PATCH=0
+				else
+					if $(gitflow_contains "$VERSION" "."); then
+						TAG_PATCH=$(echo "$VERSION" | cut -f1 -d"."|cut -f1 -d"-")
+					else
+						TAG_PATCH=$(echo "$TAG" | cut -f3 -d".")
+						TAG_PATCH=$(($TAG_PATCH+1))
+					fi
+
+				fi
+			else
+				TAG_MINOR=$(echo "$TAG" | cut -f2 -d".")
+				TAG_MINOR=$(($TAG_MINOR+1))
+					TAG_PATCH=0
+
+			fi
+			TAG=$TAG_MAJOR.$TAG_MINOR.$TAG_PATCH
+		fi
 		gitflow_set_major_minor $TAG
-		AVH_PATCH_LEVEL=$(($AVH_PATCH_LEVEL+1))
 	fi
 fi
 gitflow_build_version
