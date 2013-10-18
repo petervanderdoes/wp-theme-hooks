@@ -33,6 +33,13 @@ if [ $? -eq 127 ]; then
 	exit 127
 fi
 
+if [ ! -f "$REPO_DIR"/Changes.md ]; then
+	cp "$REPO_DIR"/.git/hooks/templates/Changes.md "$REPO_DIR"/Changes.md
+fi
+
+git config gitflow.hotfix.finish.message "Release: %%TAG_VERSION%%"
+git config gitflow.release.finish.message "Release: %%TAG_VERSION%%"
+
 gitflow_update_version() {
 	if [ -n "$2" ]; then
 		MSG="$2"
