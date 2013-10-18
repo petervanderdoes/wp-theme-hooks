@@ -9,8 +9,11 @@ I just adjusted their code to make it work for me.
 These hooks are used by me for development of WordPress themes.
  
 ## Installation
-* Copy the contents of src/ to the .git/hooks directory in your git repository
+* Install using `make`, by default the software will be installed 
+in `/opt/wp-theme-hooks`.
+* Copy or link the /opt/wp-theme-hooks to .git/hooks directory in your git repository
 * Copy the file hooks_config.sample to the .git directory, naming it hooks_config.
+* Modify the hooks_config file as needed.
 
 ## Requirements
 * git-flow AVH edition
@@ -55,8 +58,12 @@ The Changes.md needs to contain a section for the changelog, set up as follows
 
 == Changelog
 
-= Version 0.0.0 =
-* Start of changelog
+= Version 0.0.0
+* 1st entry of changelog
 
 ```
 After you added another version you can edit or remove the 0.0.0 entry
+
+There is a template for the file in the templates directory. If the file 
+Changes.md doesn't exists in the root of the repository this template 
+will be copied there. 
