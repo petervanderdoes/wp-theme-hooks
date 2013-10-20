@@ -9,6 +9,7 @@ I just adjusted their code to make it work for me.
 These hooks are used by me for development of WordPress themes.
  
 ## Installation
+* Clone the repository
 * Install using `make`, by default the software will be installed 
 in `/opt/wp-theme-hooks`.
 * Copy or link the /opt/wp-theme-hooks to .git/hooks directory in your git repository
