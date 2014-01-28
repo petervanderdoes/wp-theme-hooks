@@ -18,7 +18,7 @@ ROOTDIR=$(git rev-parse --show-toplevel)
 
 # Prepare new version
 # HOOKS_DIR is defined in gitflow-common.
-CURRENT_VERSION=$(grep  -m1 "^= Version .* " $ROOTDIR/Changes.md | cut -f3 -d" ")
+CURRENT_VERSION=$(grep  -m1 "^= Version .* " $ROOTDIR/$CHANGELOG | cut -f3 -d" ")
 
 gitflow_set_major_minor $CURRENT_VERSION
 gitflow_set_dev_release
