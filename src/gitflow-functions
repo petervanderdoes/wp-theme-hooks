@@ -33,8 +33,8 @@ if [ $? -eq 127 ]; then
 	exit 127
 fi
 
-if [ ! -f "$REPO_DIR"/Changes.md ]; then
-	cp "$REPO_DIR"/.git/hooks/templates/Changes.md "$REPO_DIR"/Changes.md
+if [ ! -f "$REPO_DIR"/CHANGES.md ]; then
+	cp "$REPO_DIR"/.git/hooks/templates/CHANGES.md "$REPO_DIR"/CHANGES.md
 fi
 
 git config gitflow.hotfix.finish.message "Release: %%TAG_VERSION%%"

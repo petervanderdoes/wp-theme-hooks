@@ -1,4 +1,5 @@
 MAINFILE=style.css
+CHANGELOG=CHANGES.md
 _update_version() {
         #Update the version number
         sed -i 's/Version:.*/Version: '$VERSION'/' $ROOTDIR/style.css
